@@ -53,17 +53,17 @@ public class fragment_my_invest extends Fragment {
     InvestStockListSampleData investStockListSampleData;
 
 
-
     public String Stockbuylist;
 
     public String[] splitbuystock;
 
     HttpConnection httpConnection = HttpConnection.getInstance();
     public int buymomentstockprice; // 매수한 순간의 종목 가격 합계가 들어가있는 변수
-    public int AllBuyStockPrice; // 매수한 종목들의 총 주식 가격
+    public int AllBuyStockPrice=0; // 매수한 종목들의 총 주식 가격
     int buy2;
     int count = 1;
-    boolean flag=true;
+    boolean flag = true;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -304,22 +304,27 @@ public class fragment_my_invest extends Fragment {
                                     jsonObject = jsonArray.getJSONObject(i);
                                     investstockname = jsonObject.getString("stock_name");
                                     investstockprice = jsonObject.getString("stock_price");
-
                                     buy2 = Integer.parseInt(investstockprice);
-                                    while(flag){
-                                        if (count>splitbuystock.length){
-                                            flag = false;
-                                            break;
-                                        }
-                                        count++;
-                                        AllBuyStockPrice += buy2;
-                                        Log.d("현재 매수종목들의 주가 총 합", "run: " + AllBuyStockPrice);
-
-                                    }
 
                                     investstocklist.add(new InvestStockListSampleData(investstockname, investstockprice));
+
                                 }
 
+                                int[] array = new int[splitbuystock.length];
+                                while(flag){
+                                    if (count>splitbuystock.length){
+                                        flag = false;
+                                        break;
+                                    }
+
+                                    for(int i2 = 0; i2<array.length; i2++){
+                                        array[i2] += buy2;
+                                        AllBuyStockPrice += array[i2];
+                                        Log.d("현재 매수종목들의 주가 총 합", "run: " + AllBuyStockPrice);
+                                        buy2=0;
+                                    }
+                                    count++;
+                                }
                                 adapter.notifyDataSetChanged(); // 어뎁터에 값이 변화되었다고 알림
                             } catch (JSONException | IOException exception) {
                                 exception.printStackTrace();

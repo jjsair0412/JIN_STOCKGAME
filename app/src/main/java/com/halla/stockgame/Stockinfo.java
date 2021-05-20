@@ -28,7 +28,7 @@ public class Stockinfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stockinfo);
 
-        DBHelper dbHelper = new DBHelper(getApplicationContext(), "SidMoney", null, 1);
+        DBHelper dbHelper = new DBHelper(getApplicationContext(), "SeedMoney", null, 1);
 
 
         MyMoneyView = (TextView) findViewById(R.id.MyMoneyView);

@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
@@ -52,7 +53,7 @@ public class EachStockInfo extends AppCompatActivity {
     private Thread thread;
     Button BackBtn;
     Handler handler = new Handler();
-    TextView sidmoney;
+    TextView seedmoney;
 
     public int dbprice;
     public int ZeroPrice;
@@ -62,15 +63,15 @@ public class EachStockInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_each_stock_info);
 
-        DBHelper dbHelper = new DBHelper(getApplicationContext(), "SidMoney", null, 1);
+        DBHelper dbHelper = new DBHelper(getApplicationContext(), "SeedMoney", null, 1);
         DBHelper dbHelper2 = new DBHelper(getApplicationContext(), "BuyStockList", null, 1);
 
         dbprice = Integer.parseInt(dbHelper.getResult());
 
-        sidmoney = (TextView) findViewById(R.id.sidmoney);
+        seedmoney = (TextView) findViewById(R.id.seedmoney);
         Log.d("실험실험실험", "onCreate: "+dbprice);
 
-        sidmoney.setText(dbHelper.getResult());
+        seedmoney.setText(dbHelper.getResult());
 
         Intent intent = getIntent();
 
@@ -93,13 +94,13 @@ public class EachStockInfo extends AppCompatActivity {
             public void onClick(View view) {
                 String DBINstockName = dbHelper2.getStockListResult();
                 if (DBINstockName.contains(recivename)){
-                    Log.d("여러개","같은 종목을 여러개 살 수 없습니다.");
+                    Toast.makeText(getApplicationContext(),"같은 종목을 여러개 살 수 없습니다..",Toast.LENGTH_SHORT).show();
                 }else{ // 한 종목을 여러번사지 못하도록 else문에서 작동
                     if(dbprice>=Price){ // 시드가 해당 종목별 가격보다 크거나 같을때만 매수 실행
                         dbprice-=Price; // 매수하면 해당종목가격이 시드머니에서 빠짐
                         Log.d("바뀐시드머니 실험", "onClick: "+dbprice);
                         dbHelper.update("MainUser",dbprice); //db에 바뀐 시드머니 업데이트
-                        sidmoney.setText(dbHelper.getResult());
+                        seedmoney.setText(dbHelper.getResult());
 
                         dbHelper2.BuyStockinsert(recivename,Price); // db에 매수한 종목 insert, 종목가격이 증가하기 전에 매수했던순간의 값을 db에 저장
                         Log.d("매수종목 들어갓는지 실험", "onClick: "+dbHelper2.getStockListResult());
@@ -113,7 +114,7 @@ public class EachStockInfo extends AppCompatActivity {
                         ChangeData();
                         Log.d("바뀐값", "onClick: "+Price2);
                     }else {
-                        Log.d("시드머니 부족","시드머니가 부족합니다.");
+                        Toast.makeText(getApplicationContext(),"시드머니가 부족합니다..",Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -128,7 +129,7 @@ public class EachStockInfo extends AppCompatActivity {
                         dbprice+=Price; // 판 순간의 가격을 시드머니에 더해준다.
                         dbHelper.update("MainUser",dbprice); //db에 바뀐 시드머니 업데이트
                         dbHelper2.SellStockTable(recivename);
-                        sidmoney.setText(dbHelper.getResult());
+                        seedmoney.setText(dbHelper.getResult());
 
                         Price-=100; // 주가를 100원 빼준다
                         Price2 =Integer.toString(Price);
@@ -141,7 +142,7 @@ public class EachStockInfo extends AppCompatActivity {
                         ChangeData();
                         Log.d("바뀐값", "onClick: "+Price2);
                 }else{
-                    Log.d("오류", "다른 종목이거나 매수한 내역이 없습니다");
+                    Toast.makeText(getApplicationContext(),"다른 종목이거나 매수한 내역이 없습니다..",Toast.LENGTH_SHORT).show();
                 }
             }
         });

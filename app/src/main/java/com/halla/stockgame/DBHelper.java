@@ -17,9 +17,9 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         // 새로운 테이블 생성
-        /* 이름은 SidMoney, 자동으로 값이 증가하는 _id 정수형 기본키 컬럼과
+        /* 이름은 SeedMoney, 자동으로 값이 증가하는 _id 정수형 기본키 컬럼과
         User 문자열 컬럼, Money 정수형 컬럼 생성 */
-        db.execSQL("CREATE TABLE IF NOT EXISTS SidMoney (User TEXT, Money INTEGER);");
+        db.execSQL("CREATE TABLE IF NOT EXISTS SeedMoney (User TEXT, Money INTEGER);");
         db.execSQL("CREATE TABLE IF NOT EXISTS BuyStockList (BuyStockNmae TEXT, BuyMomentPrice INTEGER);");
     }
 
@@ -29,11 +29,11 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
-    public void insert(String User, int Money) { // sidmoney 테이블 insert문
+    public void insert(String User, int Money) { // SeedMoney 테이블 insert문
         // 읽고 쓰기가 가능하게 DB 열기
         SQLiteDatabase db = getWritableDatabase();
         // DB에 입력한 값으로 행 추가
-        db.execSQL("INSERT INTO SidMoney VALUES( '" + User + "', " + Money + ");");
+        db.execSQL("INSERT INTO SeedMoney VALUES( '" + User + "', " + Money + ");");
         db.close();
     }
 
@@ -45,10 +45,10 @@ public class DBHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void update(String User, int Money) { // sidmoney테이블 update문
+    public void update(String User, int Money) { // SeedMoney테이블 update문
         SQLiteDatabase db = getWritableDatabase();
         // 입력한 항목과 일치하는 행의 가격 정보 수정
-        db.execSQL("UPDATE SidMoney SET Money=" + Money + " WHERE User='" + User + "';");
+        db.execSQL("UPDATE SeedMoney SET Money=" + Money + " WHERE User='" + User + "';");
         db.close();
     }
 
@@ -56,7 +56,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void MoneyTalbedelete(String User) { // 시드머니테이블 튜플 삭제
         SQLiteDatabase db = getWritableDatabase();
         // 입력한 항목과 일치하는 행 삭제
-        db.execSQL("DELETE FROM SidMoney WHERE User='" + User + "';");
+        db.execSQL("DELETE FROM SeedMoney WHERE User='" + User + "';");
         db.close();
     }
 
@@ -73,7 +73,7 @@ public class DBHelper extends SQLiteOpenHelper {
         String result = "";
 
         // DB에 있는 데이터를 쉽게 처리하기 위해 Cursor를 사용하여 테이블에 있는 모든 데이터 출력
-        Cursor cursor = db.rawQuery("SELECT * FROM SidMoney", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM SeedMoney", null);
         while (cursor.moveToNext()) {
             result += cursor.getInt(1);
         }

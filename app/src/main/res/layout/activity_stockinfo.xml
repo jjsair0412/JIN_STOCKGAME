@@ -9,16 +9,15 @@
 
 
     <TextView
+        android:id="@+id/MyMoneyView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="내 현재 시드"
-        android:textSize="20dp"
-        android:id="@+id/MyMoneyView"/>
+        android:textColor="@color/black"
+        android:textSize="35dp" />
 
 
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/fram_layout"
@@ -29,10 +28,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:background="@color/white"
-            app:itemIconTint="@color/purple_200"
-            app:itemTextColor="@color/black"
+            android:background="@color/gametheme"
+            app:itemTextColor="@color/white"
             app:menu="@menu/bottomnavilayout" />
+
 
     </FrameLayout>
 

@@ -7,45 +7,98 @@
     tools:context=".EachStockInfo"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/ReciveStockName"
-        android:hint="받아온 주식이름"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/ReciveStockPrice"
-        android:hint="얼마?"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/sidmoney"
-        android:hint="시드머니"/>
-
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/BackBtn"
-        android:text="이전화면으로"/>
+        android:layout_width="62dp"
+        android:layout_height="30dp"
+        android:background="@color/whiteclear"
+        android:text="BACK"
+        android:textColor="@color/gametheme"/>
 
-    <Button
+    <TextView
+        android:id="@+id/ReciveStockName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="매수"
-        android:id="@+id/Buy"/>
+        android:layout_marginLeft="20dp"
+        android:hint="받아온 주식이름"
+        android:textColor="@color/gametheme"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:layout_marginTop="5dp"/>
 
-    <Button
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="매도"
-        android:id="@+id/Sell"/>
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:layout_marginLeft="20dp"
+            android:text="Stock Price : "/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ReciveStockPrice"
+            android:hint="PRICE"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/gametheme"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:layout_marginLeft="20dp"
+            android:text="SeedMoney : "/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/seedmoney"
+            android:hint="MY SEED"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/gametheme"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp" />
+
+    </LinearLayout>
+
 
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/chart"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="427dp"
+        android:layout_marginTop="10dp" />
+
+    <Button
+        android:id="@+id/Buy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BUYING"
+        android:layout_gravity="right"
+        android:background="@drawable/button_color_drawable"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/Sell"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="SELLING"
+        android:background="@drawable/button_color_drawable"
+        android:layout_marginTop="10dp"/>
 
 </LinearLayout>

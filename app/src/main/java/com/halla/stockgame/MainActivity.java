@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        DBHelper dbHelper = new DBHelper(getApplicationContext(), "SidMoney", null, 1);
+        DBHelper dbHelper = new DBHelper(getApplicationContext(), "SeedMoney", null, 1);
 
         SharedPreferences pref = getSharedPreferences("checkFirst",MainActivity.MODE_PRIVATE);
         boolean checkFirst = pref.getBoolean("checkFirst",true);
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 dbHelper.update("MainUser",10000);
-                Log.d("시드머니 충전버튼 실행", "시드머니 충전완료");
+                Log.d("시드머니 충전버튼", "시드머니 충전완료");
 
             }
         });

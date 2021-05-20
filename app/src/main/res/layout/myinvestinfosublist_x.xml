@@ -18,10 +18,10 @@
     </LinearLayout>
 
     <TextView
-        android:textSize="30dp"
-        android:layout_weight="5"
         android:id="@+id/invsetstockpricexml"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="종목가격"/>
+        android:layout_height="50dp"
+        android:layout_weight="5"
+        android:hint="종목가격"
+        android:textSize="30dp" />
 </LinearLayout>

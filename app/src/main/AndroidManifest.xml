@@ -14,10 +14,15 @@
         android:theme="@style/Theme.STOCKGAME"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".Main_MyStockInvest"></activity>
-        <activity android:name=".EachStockInfo" />
-        <activity android:name=".Stockinfo" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Main_MyStockInvest"
+            android:theme="@style/FullScreenTheme"></activity>
+
+        <activity android:name=".EachStockInfo"
+            android:theme="@style/FullScreenTheme"/>
+        <activity android:name=".Stockinfo"
+            android:theme="@style/FullScreenTheme"/>
+        <activity android:name=".MainActivity"
+            android:theme="@style/FullScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

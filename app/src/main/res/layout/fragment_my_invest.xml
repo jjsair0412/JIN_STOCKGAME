@@ -7,16 +7,18 @@
     android:orientation="vertical">
 
     <TextView
+        android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/buylist"
-        android:hint="매수한종목"/>
+        android:text="매수한종목"
+        android:textSize="30dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/interestRatelist"
-        android:hint="실시간수익률"/>
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/interestRatelist"-->
+<!--        android:hint="실시간수익률"/>-->
 
     <FrameLayout
         android:layout_width="match_parent"

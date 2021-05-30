@@ -72,7 +72,7 @@ public class fragment_my_invest extends Fragment {
         DBHelper dbHelper2 = new DBHelper(view.getContext(), "BuyStockList", null, 1);
 
         MyInvestListView = (ListView) view.findViewById(R.id.MyInvestListView);
-        interestRate = (TextView) view.findViewById(R.id.interestRatelist);
+//        interestRate = (TextView) view.findViewById(R.id.interestRatelist);
 
 
         adapter = new myAdapter(this.getContext(), investstocklist);

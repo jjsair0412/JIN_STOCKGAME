@@ -7,15 +7,27 @@
     tools:context=".Stockinfo"
     android:orientation="vertical">
 
-
-    <TextView
-        android:id="@+id/MyMoneyView"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="내 현재 시드"
-        android:textColor="@color/black"
-        android:textSize="35dp" />
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="투자 가능 금액 : "
+            android:textColor="@color/black"
+            android:textSize="30dp" />
 
+        <TextView
+            android:id="@+id/MyMoneyView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="내 현재 시드"
+            android:textColor="@color/black"
+            android:textSize="35dp" />
+
+
+    </LinearLayout>
 
     <FrameLayout
         android:layout_width="match_parent"

@@ -1,4 +1,4 @@
-package com.halla.stockgame;
+    package com.halla.stockgame;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -33,8 +33,6 @@ public class StockListFragment extends Fragment {
 
     private Thread thread;
 
-    String stock_name; //서버로가는 종목이름
-    String stock_price; //서버로가는 종목가격
 
     String stockname; //리스트뷰에 뿌려줄 종목이름
     String stockprice; //리스트뷰에 뿌려줄 종목가격
